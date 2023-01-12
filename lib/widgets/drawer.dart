@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:team_builder/models/user_model.dart';
 import 'package:team_builder/providers/user_provider.dart';
+import 'package:team_builder/screens/aboutus.dart';
+import 'package:team_builder/screens/feed_screen.dart';
 import 'package:team_builder/utils/colors.dart';
 import '../models/user_model.dart' as model;
 
@@ -82,7 +84,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
             title: const Text("Home"),
             onTap: () => Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => const DeleteThisLater(), // Add Function
+                builder: (context) => const FeedScreen(), // Add Function
               ),
             ),
           ),
@@ -97,6 +99,21 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const DeleteThisLater(), // Add Function
+                ),
+              );
+            },
+          ),
+           ListTile(
+            leading: const Icon(
+              Icons.info_outlined,
+              color: mainColor,
+            ),
+            title: const Text("About Us"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const AboutUs(), // Add Function
                 ),
               );
             },
